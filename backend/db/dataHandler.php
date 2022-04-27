@@ -1,6 +1,6 @@
 <?php
 
-include "dbaccess.php";
+require_once("dbaccess.php");
 
 class DataHandler
 {
@@ -14,14 +14,25 @@ class DataHandler
         }
     }
 
-    public function dataSelect($SQLquery, $parameters, $types){
+    public function dataSelect($SQLquery, $parameters = null, $types = null){
         $stmt = $this->connection->prepare($SQLquery);
-        $stmt->bind_param($types, ...$parameters);
+        if(!empty($parameters)){$stmt->bind_param($types, ...$parameters);}
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
 
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
 
+    public function dataInsert($SQLquery, $parameters = null, $types = null){
+        $stmt = $this->connection->prepare($SQLquery);
+        if(!empty($parameters)){$stmt->bind_param($types, ...$parameters);}
+        $success = $stmt->execute();
+        $stmt->close();
+
+        if($success){
+            return  $this->connection->insert_id;
+        }
+        return null;
     }
 }
