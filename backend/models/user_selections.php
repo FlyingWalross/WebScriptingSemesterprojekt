@@ -15,7 +15,7 @@ class User_Selections {
             return null;
         }
 
-        $userSelections = $this->dh->dataSelect("SELECT * from user_selection where fk_appointment_id=?", [$_POST["id"]], "i");
+        $userSelections = $this->dh->dataSelect("SELECT * from user_selection where fk_appointment_id=? order by pk_selection_id DESC", [$_POST["id"]], "i");
 
         foreach($userSelections as $key=>$selection){
             $selectedDates = $this->dh->dataSelect("SELECT * from user_selection_date where fk_selection_id=?", [$selection["pk_selection_id"]], "i");
@@ -27,6 +27,10 @@ class User_Selections {
             }
  
             $userSelections[$key]["selectedDateIds"] = $selectedDateIds;
+        }
+
+        if(empty($userSelections)){
+            return "no selections";
         }
 
         return $userSelections;
@@ -56,7 +60,6 @@ class User_Selections {
 
             foreach($_POST["dateIds"] as $dateId){
                 if(!in_array($dateId, $appointmentDateIds)){
-                    echo "Test123";
                     return null;
                 }
             }

@@ -1,0 +1,54 @@
+<script src="js/registerAppointment.js" type="text/javascript" defer></script>
+
+<div class="col-12">
+  <h3 class="fw-normal text-secondary fs-4 text-uppercase mb-4">Create new appointment</h3>
+</div>
+
+<div class="row">
+  <form action="">
+      <div class="row g-3">
+          <div class="col-md-6">
+          <label>Title</label>
+          <input type="text" class="form-control" placeholder="title" required>
+         </div>
+          <label>Deadline</label>
+          <div class="col-md-6">
+              <input type="date" class="form-control" placeholder="">
+          </div>
+          <div class="col-md-6">
+              <input type="time" class="form-control" placeholder="">
+          </div>
+          <label>Description</label>
+          <div class="col-12">
+              <textarea class="form-control" placeholder="e.g. name, location, duration, ..."></textarea>
+          </div>
+      </div>
+
+<br>
+
+<p>Date options</p>
+<div id="date_options" class="list-group">
+<li class="list-group-item list-group-item-action">20.05.2022 - 08:00</li>
+<li class="list-group-item list-group-item-action">22.05.2022 - 16:00</li>
+<li class="list-group-item list-group-item-action">22.05.2022 - 12:00</li>
+</div>
+
+<br>
+
+<div class="row g-3">
+    <div class="col-md-4">
+        <input type="date" id="option_date" class="form-control float-start" placeholder="">
+    </div>
+    <div class="col-md-4">
+        <input type="time" id="option_time" class="form-control float-start" placeholder="">
+    </div>
+   
+    <div class="col-md-4">                        
+      <button type="button" id="date_option_btn" class="btn btn-primary float-start">add date option</button>
+      </div>
+    <div class="col-12 mt-5">                        
+      <button type="submit" class="btn btn-success float-end">Create appointment</button>
+      <button type="button" id="cancelRegisterAppointmentButton" class="btn btn-outline-secondary float-start me-2">Cancel</button>
+  </div>
+</div>
+</form>

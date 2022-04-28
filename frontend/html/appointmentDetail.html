@@ -1,0 +1,38 @@
+<script src="js/appointmentDetail.js" type="text/javascript" defer></script>
+
+<div class="col-12">
+  <h3 id="appointmentTitle" class="fw-normal text-secondary fs-4 text-uppercase"></h3>
+  <p id="appointmentDescription"></p>
+</div>
+
+<div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr id="tableDateColumns">
+            <th scope="col"></th>
+            <th scope="col">Comment</th>
+          </tr>
+        </thead>
+        <tbody id="userSelections">
+        </tbody>
+    </table>
+  </div>
+
+    <div class="col-12 mt-2">
+      <input type="text" class="form-control mt-2" id="nameInput" placeholder="Enter your name" required>
+      <input type="text" class="form-control mt-2" id="commentInput" placeholder="Add a comment (optional)">                        
+    </div>
+
+    <div class="col-12 mt-3">     
+     
+      <div class="float-end">
+        <span id="noNameWarning" style="vertical-align:middle; padding-right: 5px; color:red;"></span>
+        <button type="button" id="submitSelectionButton" class="btn btn-primary">Submit</button>
+      </div>               
+      <button type="button" id="returnToAppointmentListButton" class="btn btn-outline-secondary float-start">Return</button>
+    </div>
+
+</div>
+
