@@ -11,7 +11,7 @@ class Appointments {
         }
 
     public function getAppointments(){
-        $appointments = $this->dh->dataSelect("SELECT * from appointment");
+        $appointments = $this->dh->dataSelect("SELECT * from appointment ORDER BY deadline DESC");
 
         foreach($appointments as $key=>$appointment){
             $appointmentDates = $this->dh->dataSelect("SELECT pk_date_id, time from date where fk_appointment_id=?", [$appointment["pk_appointment_id"]], "i");

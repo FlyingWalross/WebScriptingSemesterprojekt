@@ -37,7 +37,9 @@ function insertAppointments(appointments){
         $(descritpion).html(appointment["place"]);
         
         deadline = document.createElement("td");
-        $(deadline).html(appointment["deadline"]);
+        dateObj = new Date(appointment["deadline"]);
+        dateString = dateObj.getDate() + "." + (dateObj.getMonth() + 1) + "." + dateObj.getFullYear() + " - " + ("0" + dateObj.getHours()).slice(-2) + ":" + ("0" + dateObj.getMinutes()).slice(-2);
+        $(deadline).html(dateString);
         if(Date.now() > Math.floor(new Date(appointment["deadline"]).getTime())){
             $(deadline).html("<span style='color: blue;'> [Closed]</span>");
         }

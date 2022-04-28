@@ -47,7 +47,9 @@ function displayAppointment(appointment){
     $.each(appointment["dates"], function(i, date) {
         newElement = document.createElement("th");
         $(newElement).attr("scope", "col");
-        $(newElement).html(date["time"]);
+        dateObj = new Date(date["time"]);
+        dateString = dateObj.getDate() + "." + (dateObj.getMonth() + 1) + "." + dateObj.getFullYear() + "<br>" + ("0" + dateObj.getHours()).slice(-2) + ":" + ("0" + dateObj.getMinutes()).slice(-2);
+        $(newElement).html(dateString);
         newElement.dataset.dateId = date["pk_date_id"];
         $(newElement).attr("class", "dateColum");
         $(newElement).insertBefore("#tableDateColumns th:last");
