@@ -130,5 +130,7 @@ function submitSelection(){
 }
 
 function reloadPage(){
-    $("#page").load("html/appointmentDetail.html");
+    $("#page").fadeOut("fast", function(){
+        $("#page").load("html/appointmentDetail.html");
+    }); 
 }
